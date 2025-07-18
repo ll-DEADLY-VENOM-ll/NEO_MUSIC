@@ -903,7 +903,7 @@ def panel_markup_clone(_, vidid, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="˹ᴄʜᴧᴍᴘᴜ˼", url=f"https://t.me/TheChampu"
+                text="˹野买˼", url=f"https://t.me/VNI0X"
             ),
         ],
         [
