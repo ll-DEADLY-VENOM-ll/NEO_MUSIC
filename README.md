@@ -12,19 +12,6 @@
 [![Instagram](https://img.shields.io/badge/-Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/ShiNOBITA_BOT_MAKER)
 [![Youtube](https://img.shields.io/badge/-YouTube-F50909?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@NOBITA_HACKING_KING)
 
-
-
-<h3 align="center">
-<a href="https://www.youtube.com/@NOBITA_HACKING_KING"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"></a>  
-</a></p>
-
-<h4>𝐓ʀʏ 𝐌ʏ 𝐓ᴇʟᴇɢʀᴀᴍ 𝐁ᴏᴛ's<h4>
- 
-[![MUSIC](https://img.shields.io/badge/-TheChampuBot-E1306C?style=for-the-badge&logo=TheChampuBot&logoColor=green)](https://t.me/TheChampuBot)
-[![MUSIC](https://img.shields.io/badge/TheKittyXD_Bot-%2307405e.svg?&style=for-the-badge&logo=TheKittyXD_Bot&logoColor)](https://t.me/TheKittyXD_Bot)
-[![MUSIC](https://img.shields.io/badge/itsWaifuBot-%2307405e.svg?&style=for-the-badge&logo=itsWaifuBot&logoColor)](https://t.me/itsWaifuBot)
-
-
 </p>
 
 <h3 align="center">
