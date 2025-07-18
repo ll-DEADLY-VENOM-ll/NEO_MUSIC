@@ -56,4 +56,4 @@ async def init():
 
 if __name__ == "__main__":
     asyncio.get_event_loop_policy().get_event_loop().run_until_complete(init())
-    LOGGER("ChampuMusic").info("sᴛᴏᴘᴘɪɴɢ ᴄʜᴀᴍᴘᴜᴍᴜsɪᴄ! ɢᴏᴏᴅʙʏᴇ")
+    LOGGER("ChampuMusic").info("sᴛᴏᴘᴘɪɴɢ 野买! ɢᴏᴏᴅʙʏᴇ")
