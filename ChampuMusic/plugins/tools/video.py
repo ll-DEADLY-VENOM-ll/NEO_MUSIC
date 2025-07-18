@@ -98,5 +98,5 @@ async def download_video(_, message: Message):
         await m.delete()
 
     except Exception as e:
-        await m.edit("🙂 ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ! @itsMeShivanshu & @ShivanshuXD ᴘᴍ ")
+        await m.edit("🙂 ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ! @VNI0X & @heroku_club ᴘᴍ ")
         print(f"Error: {str(e)}")
