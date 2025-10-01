@@ -39,8 +39,8 @@ API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 OWNER_ID = int(os.getenv("OWNER_ID", None))
-OWNER_USERNAME = os.getenv("OWNER_USERNAME", "WTF_WhyMeeh")
-BOT_USERNAME = os.getenv("BOT_USERNAME", "ShrutixMusicBot")
+OWNER_USERNAME = os.getenv("OWNER_USERNAME", "ll_DEADLY_VENOM_ll")
+BOT_USERNAME = os.getenv("BOT_USERNAME", "NEO_MUSIC_ROBOT")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # 🛠️ Database & Deployment Configs
@@ -63,13 +63,13 @@ GIT_TOKEN = os.getenv("GIT_TOKEN", None)
 # 🔗 Support Links
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/ShrutiBots")
-SUPPORT_GROUP = os.getenv("SUPPORT_GROUP", "https://t.me/ShrutiBotSupport")
-INSTAGRAM = os.getenv("INSTAGRAM", "https://instagram.com/yaduwanshi_nand")
-YOUTUBE = os.getenv("YOUTUBE", "https://youtube.com/@NandEditz")
-GITHUB = os.getenv("GITHUB", "https://github.com/NoxxOP")
-DONATE = os.getenv("DONATE", "https://t.me/ShrutiBots/91")
-PRIVACY_LINK = os.getenv("PRIVACY_LINK", "https://graph.org/Privacy-Policy-05-01-30")
+SUPPORT_CHANNEL = os.getenv("SUPPORT_CHANNEL", "https://t.me/ABOUT_DEADLY_VENOM")
+SUPPORT_GROUP = os.getenv("SUPPORT_GROUP", "https://t.me/NOBITA_SUPPORT")
+INSTAGRAM = os.getenv("INSTAGRAM", "https://t.me/+b628jP6zFboxOTFl")
+YOUTUBE = os.getenv("ABOUT", "https://t.me/+X8db13_3dXY2ODY1")
+GITHUB = os.getenv("GITHUB", "https://github.com/ll-DEADLY-VENOM-ll/NEO_MUSIC")
+DONATE = os.getenv("DONATE", "https://t.me/+X8db13_3dXY2ODY1")
+PRIVACY_LINK = os.getenv("PRIVACY_LINK", "https://t.me/+X8db13_3dXY2ODY1")
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # ⏱️ Duration & Playlist Settings
@@ -112,9 +112,9 @@ AUTO_LEAVING_ASSISTANT = bool(os.getenv("AUTO_LEAVING_ASSISTANT", False))
 # 🖼️ Image URLs (Can be customized)
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-START_IMG_URL = os.getenv("START_IMG_URL", "https://files.catbox.moe/7q8bfg.jpg")
-PING_IMG_URL = os.getenv("PING_IMG_URL", "https://files.catbox.moe/eehxb4.jpg")
-PLAYLIST_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
+START_IMG_URL = os.getenv("START_IMG_URL", "https://vault.pictures/p/74937a5f233f42d0ba826da110ef42d2")
+PING_IMG_URL = os.getenv("PING_IMG_URL", "https://vault.pictures/p/30070e1fe9ac42b08dcbc4366a084df1")
+PLAYLIST_IMG_URL = "https://vault.pictures/p/74937a5f233f42d0ba826da110ef42d2"
 STATS_IMG_URL = "https://files.catbox.moe/eehxb4.jpg"
 TELEGRAM_AUDIO_URL = "https://files.catbox.moe/eehxb4.jpg"
 TELEGRAM_VIDEO_URL = "https://files.catbox.moe/eehxb4.jpg"
