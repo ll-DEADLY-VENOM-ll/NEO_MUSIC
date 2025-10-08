@@ -67,7 +67,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/ll-DEADLY-VENOM-ll/NO1",
+    "https://github.com/ll-DEADLY-VENOM-ll/NEO_MUSIC",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
@@ -101,7 +101,7 @@ TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", 5))
 
 
 # Your Github Repo.. Will be shown on /start Command
-GITHUB_REPO = getenv("GITHUB_REPO", "https://github.com/TANYA-SINGH-VNS-UP/NO1")
+GITHUB_REPO = getenv("GITHUB_REPO", "https://github.com/ll-DEADLY-VENOM-ll/NEO_MUSIC")
 
 
 # Spotify Client.. Get it from https://developer.spotify.com/dashboard
@@ -171,17 +171,17 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://files.catbox.moe/uohequ.jpg",
+    "https://vault.pictures/p/30070e1fe9ac42b08dcbc4366a084df1",
 )
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://files.catbox.moe/uohequ.jpg",
+    "https://vault.pictures/p/1d2760d2565345569acaafaf8ecfa94c",
 )
 
 PLAYLIST_IMG_URL = getenv(
     "PLAYLIST_IMG_URL",
-    "https://files.catbox.moe/uohequ.jpg",
+    "https://vault.pictures/p/ba6e9568ffa84000b83b23aff4fdfb61",
 )
 
 GLOBAL_IMG_URL = getenv(
