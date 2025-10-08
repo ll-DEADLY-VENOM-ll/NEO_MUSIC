@@ -32,14 +32,14 @@ DURATION_LIMIT_MIN = int(
 
 EXTRA_PLUGINS = getenv(
     "EXTRA_PLUGINS",
-    True,
+    "True",
 )
 
 # Fill True if you want to load extra plugins
 # Fill here the external plugins repo where plugins that you want to load
 EXTRA_PLUGINS_REPO = getenv(
     "EXTRA_PLUGINS_REPO",
-    "",
+    "https://github.com/ll-DEADLY-VENOM-ll/Extra-Plugin",
 )
 
 # Your folder name in your extra plugins repo where all plugins stored
@@ -67,7 +67,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/TANYA-SINGH-VNS-UP/NO1",
+    "https://github.com/ll-DEADLY-VENOM-ll/NO1",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
