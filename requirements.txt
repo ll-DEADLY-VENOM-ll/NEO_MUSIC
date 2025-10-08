@@ -35,3 +35,4 @@ pyrofork
 yt-dlp
 youtube-search
 youtube-search-python
+pyrogram
