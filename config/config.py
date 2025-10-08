@@ -15,7 +15,7 @@ API_HASH = getenv("API_HASH","")
 BOT_TOKEN = getenv("BOT_TOKEN")
 
 # Get Your bot username
-BOT_USERNAME = getenv("BOT_USERNAME" , "NOBITA_SONG_BOT")
+BOT_USERNAME = getenv("BOT_USERNAME" , "NEO_MUSIC_ROBOT")
 
 # Get your mongo url from cloud.mongodb.com
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
@@ -32,7 +32,7 @@ DURATION_LIMIT_MIN = int(
 
 EXTRA_PLUGINS = getenv(
     "EXTRA_PLUGINS",
-    "True",
+    "false",
 )
 
 # Fill True if you want to load extra plugins
@@ -171,17 +171,17 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://vault.pictures/p/30070e1fe9ac42b08dcbc4366a084df1",
+    "https://graph.org/file/22d0653837f0700a1c6c7-04852052e242589b1c.jpg",
 )
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://vault.pictures/p/1d2760d2565345569acaafaf8ecfa94c",
+    "https://graph.org/file/2e11a781b26cb4db7998c-b8f620a8697862f61d.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
     "PLAYLIST_IMG_URL",
-    "https://vault.pictures/p/ba6e9568ffa84000b83b23aff4fdfb61",
+    "https://graph.org/file/aa77daad89747c404e457-97cc83011e25be4f12.jpg",
 )
 
 GLOBAL_IMG_URL = getenv(
