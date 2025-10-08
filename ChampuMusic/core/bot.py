@@ -14,6 +14,7 @@ from pyrogram.types import (
     InlineKeyboardMarkup,
 )
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
+from pyrogram.errors.exceptions.bad_request_400 import BadRequest # Import BadRequest specifically
 import config
 
 from ..logging import LOGGER
@@ -28,6 +29,7 @@ class ChampuBot(Client):
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
         )
+
     async def start(self):
         await super().start()
         get_me = await self.get_me()
@@ -36,8 +38,10 @@ class ChampuBot(Client):
         self.name = self.me.first_name + " " + (self.me.last_name or "")
         self.mention = self.me.mention
 
-        # Create the button
-        button = InlineKeyboardMarkup(
+        LOGGER(__name__).info(f"Bot info obtained: Name={self.name}, Username=@{self.username}, ID={self.id}")
+
+        # Create the inline button for adding to groups
+        add_to_group_button = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
@@ -48,37 +52,89 @@ class ChampuBot(Client):
             ]
         )
 
-        # Try to send a message to the logger group
+        # --- Logging Group Initialization ---
         if config.LOGGER_ID:
+            log_message = f"""
+╔════❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱════❍⊱❁۪۪
+║
+║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉
+║
+║┣⪼ {self.name}
+║
+║┣⪼🎈ɪᴅ:- `{self.id}` 
+║
+║┣⪼🎄@{self.username} 
+║ 
+║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍
+║
+╚════════════════❍⊱❁
+"""
+            LOGGER(__name__).info(f"Attempting to send startup message to LOGGER_ID: {config.LOGGER_ID}")
             try:
+                # First, try to send photo with caption
                 await self.send_photo(
-                    config.LOGGER_ID,
+                    chat_id=config.LOGGER_ID,
                     photo=config.START_IMG_URL,
-                    caption=f"╔════❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱════❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║┣⪼ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚════════════════❍⊱❁",
-                    reply_markup=button,
+                    caption=log_message,
+                    reply_markup=add_to_group_button,
                 )
-            except pyrogram.errors.ChatWriteForbidden as e:
-                LOGGER(__name__).error(f"Bot cannot write to the log group: {e}")
+                LOGGER(__name__).info("Startup photo message sent successfully to log group.")
+            except ChatWriteForbidden:
+                LOGGER(__name__).warning(
+                    f"Bot cannot send photo/message to log group (ChatWriteForbidden 403) at {config.LOGGER_ID}. Falling back to text message."
+                )
                 try:
+                    # If 403, try sending just a text message
                     await self.send_message(
-                        config.LOGGER_ID,
-                        f"╔═══❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱═══❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║◈ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚══════════════❍⊱❁",
-                        reply_markup=button,
+                        chat_id=config.LOGGER_ID,
+                        text=log_message,
+                        reply_markup=add_to_group_button,
+                    )
+                    LOGGER(__name__).info("Startup text message sent successfully to log group after 403 fallback.")
+                except BadRequest as e:
+                    LOGGER(__name__).error(
+                        f"Failed to send startup text message to log group (400 Bad Request): {e}. "
+                        f"Check if LOGGER_ID '{config.LOGGER_ID}' is correct and bot is a member."
                     )
                 except Exception as e:
-                    LOGGER(__name__).error(f"Failed to send message in log group: {e}")
+                    LOGGER(__name__).error(
+                        f"An unexpected error occurred while sending startup text message to log group: {e}",
+                        exc_info=True # This will print the full traceback
+                    )
+            except BadRequest as e:
+                LOGGER(__name__).error(
+                    f"Failed to send startup photo message to log group (400 Bad Request): {e}. "
+                    f"This could be due to an invalid LOGGER_ID '{config.LOGGER_ID}', "
+                    f"an invalid START_IMG_URL '{config.START_IMG_URL}', or bot not being a member. Trying text message fallback."
+                )
+                try:
+                    # If 400 from photo, try sending just a text message
+                    await self.send_message(
+                        chat_id=config.LOGGER_ID,
+                        text=log_message,
+                        reply_markup=add_to_group_button,
+                    )
+                    LOGGER(__name__).info("Startup text message sent successfully to log group after 400 fallback.")
+                except Exception as e:
+                    LOGGER(__name__).error(
+                        f"Failed to send startup text message after photo 400 error: {e}",
+                        exc_info=True
+                    )
             except Exception as e:
                 LOGGER(__name__).error(
-                    f"Unexpected error while sending to log group: {e}"
+                    f"An unexpected error occurred during initial log group message attempt: {e}",
+                    exc_info=True
                 )
         else:
             LOGGER(__name__).warning(
-                "LOGGER_ID is not set, skipping log group notifications."
+                "config.LOGGER_ID is not set. Skipping log group notifications."
             )
 
-        # Setting commands
+        # --- Setting Bot Commands ---
         if config.SET_CMDS:
+            LOGGER(__name__).info("Attempting to set bot commands...")
             try:
+                # Private Chats Commands
                 await self.set_bot_commands(
                     commands=[
                         BotCommand("start", "sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ"),
@@ -87,6 +143,9 @@ class ChampuBot(Client):
                     ],
                     scope=BotCommandScopeAllPrivateChats(),
                 )
+                LOGGER(__name__).info("Private chat commands set.")
+
+                # All Group Chats Commands (Music related)
                 await self.set_bot_commands(
                     commands=[
                         BotCommand("play", "Start playing requested song"),
@@ -100,6 +159,9 @@ class ChampuBot(Client):
                     ],
                     scope=BotCommandScopeAllGroupChats(),
                 )
+                LOGGER(__name__).info("All group chat commands set.")
+
+                # All Chat Administrators Commands (Admin and fun commands)
                 await self.set_bot_commands(
                     commands=[
                         BotCommand("start", "❥ ✨ᴛᴏ sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ✨"),
@@ -133,20 +195,44 @@ class ChampuBot(Client):
                     ],
                     scope=BotCommandScopeAllChatAdministrators(),
                 )
+                LOGGER(__name__).info("All chat administrators commands set.")
+            except BadRequest as e:
+                LOGGER(__name__).error(
+                    f"Failed to set bot commands (400 Bad Request): {e}. "
+                    f"This could be due to too many commands, invalid command names, or descriptions."
+                )
             except Exception as e:
-                LOGGER(__name__).error(f"Failed to set bot commands: {e}")
+                LOGGER(__name__).error(
+                    f"An unexpected error occurred while setting bot commands: {e}",
+                    exc_info=True
+                )
+        else:
+            LOGGER(__name__).info("config.SET_CMDS is False. Skipping setting bot commands.")
 
-        # Check if bot is an admin in the logger group
+
+        # --- Check Bot Admin Status in Logger Group ---
         if config.LOGGER_ID:
+            LOGGER(__name__).info(f"Checking bot's admin status in LOGGER_ID: {config.LOGGER_ID}")
             try:
                 chat_member_info = await self.get_chat_member(
-                    config.LOGGER_ID, self.id
+                    chat_id=config.LOGGER_ID, user_id=self.id
                 )
                 if chat_member_info.status != ChatMemberStatus.ADMINISTRATOR:
                     LOGGER(__name__).error(
-                        "Please promote Bot as Admin in Logger Group"
+                        "WARNING: Bot is not an Administrator in the Logger Group! "
+                        "Some features requiring admin rights may not work. Please promote Bot as Admin."
                     )
+                else:
+                    LOGGER(__name__).info("Bot is an Administrator in the Logger Group.")
+            except BadRequest as e:
+                LOGGER(__name__).error(
+                    f"Failed to get chat member info for LOGGER_ID '{config.LOGGER_ID}' (400 Bad Request): {e}. "
+                    f"This might mean the LOGGER_ID is incorrect or the bot is not a member of this chat."
+                )
             except Exception as e:
-                LOGGER(__name__).error(f"Error occurred while checking bot status: {e}")
+                LOGGER(__name__).error(
+                    f"An unexpected error occurred while checking bot status in log group: {e}",
+                    exc_info=True
+                )
 
-        LOGGER(__name__).info(f"MusicBot Started as {self.name}")
+        LOGGER(__name__).info(f"ChampuBot Started as {self.name} successfully!")
