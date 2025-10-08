@@ -599,7 +599,7 @@ async def help(client: Client, message: Message):
              [
                  [
                       InlineKeyboardButton(
-                         "• 野买 •", url=f"https://t.me/VNI0X")
+                         "• νєησм •", url=f"https://t.me/ll_DEADLY_VENOM_ll")
                  ]
             ]
          ),
