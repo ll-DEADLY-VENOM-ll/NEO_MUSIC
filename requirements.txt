@@ -33,5 +33,4 @@ uvloop
 https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.23.zip
 git+https://github.com/alexmercerind/youtube-search-python@main
 git+https://github.com/joetats/youtube_search@master
-git+https://github.com/TheChampu/yt-dlp-youtube-oauth2
 pyrofork
