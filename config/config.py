@@ -8,8 +8,8 @@ load_dotenv()
 
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("API_ID"))
-API_HASH = getenv("API_HASH")
+API_ID = int(getenv("API_ID", ""))
+API_HASH = getenv("API_HASH","")
 
 ## Get it from @Botfather in Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
@@ -76,11 +76,11 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/heroku_club"
-)  # Example:- https://t.me/akaChampu
+    "SUPPORT_CHANNEL", "https://t.me/ABOUT_DEADLY_VENOM"
+)  # Example:- https://t.me/ABOUT_DEADLY_VENOM
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/NOBITA_SUPPORT"
-)  # Example:- https://t.me/TheChampuClub
+    "SUPPORT_GROUP", "https://t.me/Science_Sangrah_Official01"
+)  # Example:- https://t.me/Science_Sangrah_Official01
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", True)
 
