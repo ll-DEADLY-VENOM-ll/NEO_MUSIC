@@ -15,7 +15,7 @@ httpx==0.27.2
 lyricsgenius
 motor
 wget
-pillow==11.0.0
+pillow==9.5.0
 psutil
 pytube
 pykeyboard
@@ -30,9 +30,9 @@ spotipy
 tgcrypto
 urllib3
 uvloop
-https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.23.zip
 pyrofork
-yt-dlp
+youtube-dl/yt-dlp
+ffmpeg
 youtube-search
 youtube-search-python
-pyrogram
+https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.23.zip
