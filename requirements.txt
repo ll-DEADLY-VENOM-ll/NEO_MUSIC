@@ -31,7 +31,8 @@ tgcrypto
 urllib3
 uvloop
 pyrofork
-youtube-dl/yt-dlp
+youtube-dl
+yt-dlp
 ffmpeg
 youtube-search
 youtube-search-python
